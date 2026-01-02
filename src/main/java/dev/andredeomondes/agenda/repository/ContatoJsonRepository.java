@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class ContatoJsonRepository implements ContatoRepository {
 
-    private final File arquivo = new File("contatos.json");
+    private final File arquivo = new File("src/main/resources/database.json");
     private final ObjectMapper mapper = new ObjectMapper();
 
     @Override
