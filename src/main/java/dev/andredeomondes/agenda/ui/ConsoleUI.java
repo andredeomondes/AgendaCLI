@@ -12,7 +12,20 @@ public class ConsoleUI {
     private static final String CIANO = "\u001B[36m";
     private static final String NEGRITO = "\u001B[1m";
     private static final String ITALICO = "\u001B[3m";
+    public void exibirSplash() {
+        String logo = CIANO + """
+           ___                            _             ___  _     ___ 
+          / _ \\  __ _   ___  _ __    __| |  __ _     / __|| |   |_ _|
+         | (_) |/ _` | / _ \\| '_ \\  / _` | / _` |   | (__ | |__  | | 
+          \\___/ \\__, | \\___/|_| |_| \\__,_| \\__,_|    \\___||____||___|
+                |___/                                                 
+        """ + RESET + AMARELO + ITALICO + """
+                  Powered by Effective Java & Jackson JSON
+        """ + RESET;
 
+        System.out.println(logo);
+        carregar("Carregando módulos do sistema");
+    }
     public void exibirMenu() {
         System.out.println("\n" + CIANO + NEGRITO + "=== 📒 AGENDA JAVA EFETIVA ===" + RESET);
         System.out.println(CIANO + "1." + RESET + " Adicionar Contato");
