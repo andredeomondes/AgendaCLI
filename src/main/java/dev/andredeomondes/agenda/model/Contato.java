@@ -1,8 +1,12 @@
 package dev.andredeomondes.agenda.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+
 import java.util.Objects;
 
-public class Contato {
+@JsonDeserialize(builder = Contato.Builder.class)
+public final class Contato {
     private final String id;
     private final String nome;
     private final String telefone;
@@ -31,6 +35,7 @@ public class Contato {
         return email;
     }
 
+    @JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
         private String id;
         private String nome;
@@ -58,12 +63,15 @@ public class Contato {
         }
 
         public Contato build() {
+            // Item 49: Validação Fail-Fast
+            Objects.requireNonNull(nome, "O nome é obrigatório");
             return new Contato(this);
         }
     }
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Contato contato = (Contato) o;
         return Objects.equals(id, contato.id);
@@ -74,4 +82,8 @@ public class Contato {
         return Objects.hash(id);
     }
 
+    @Override // Item 12: Representação informativa
+    public String toString() {
+        return String.format("%s | %s | %s", nome, telefone, email);
+    }
 }
