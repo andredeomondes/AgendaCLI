@@ -1,0 +1,32 @@
+[
+  {
+    "id": "db01",
+    "nome": "Son Goku",
+    "telefone": "11 90001-8000",
+    "email": "goku@kamehouse.com"
+  },
+  {
+    "id": "db02",
+    "nome": "Vegeta Prince",
+    "telefone": "11 90002-9000",
+    "email": "vegeta@capsulecorp.com"
+  },
+  {
+    "id": "db03",
+    "nome": "Son Gohan",
+    "telefone": "11 90003-7000",
+    "email": "gohan@scholar.edu"
+  },
+  {
+    "id": "db04",
+    "nome": "Piccolo",
+    "telefone": "11 90004-6000",
+    "email": "piccolo@namek.universe"
+  },
+  {
+    "id": "db05",
+    "nome": "Bulma",
+    "telefone": "11 90006-4000",
+    "email": "bulma@capsulecorp.com"
+  }
+]
