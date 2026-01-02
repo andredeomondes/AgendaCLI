@@ -5,7 +5,6 @@ import dev.andredeomondes.agenda.repository.ContatoRepository;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
 public class AgendaService {
 
@@ -14,11 +13,11 @@ public class AgendaService {
         this.repository = Objects.requireNonNull(repository, "O repositório não pode ser nulo");
     }
 
-    public void cadastrarContato(String nome, String telefone, String email) {
-        validarDados(nome, telefone, email);
+    public void cadastrarContato(String id,String nome, String telefone, String email) {
+        validarDados(id, nome, telefone, email);
 
         Contato novoContato = new Contato.Builder()
-                .id(UUID.randomUUID().toString())
+                .id(id)
                 .nome(nome)
                 .telefone(telefone)
                 .email(email)
@@ -38,7 +37,7 @@ public class AgendaService {
         repository.deletarPorId(id);
     }
 
-    private void validarDados(String nome, String telefone, String email) {
+    private void validarDados(String id,String nome, String telefone, String email) {
         if (nome == null || nome.isBlank()) {
             throw new IllegalArgumentException("O nome do contato é obrigatório.");
         }
@@ -47,6 +46,9 @@ public class AgendaService {
         }
         if (email != null && !email.isBlank() && !email.contains("@") && !email.contains(".")) {
             throw new IllegalArgumentException("O email fornecido é inválido.");
+        }
+        if (id == null || id.isBlank()) {
+            throw new IllegalArgumentException("O ID do contato é obrigatório.");
         }
     }
 }
